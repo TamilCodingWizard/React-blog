@@ -18,6 +18,7 @@ export default function Home() {
 
       if (response.ok) {
         setPosts(jsonResponse);
+        setError("")
       }
 
       if (!response.ok) {
@@ -31,8 +32,11 @@ export default function Home() {
   return (<div className="container">
     {
       posts && posts.map((post) => {
-        return <Post post={post}/>
+        return <Post post={post} key={post.id}/>
       })
+    }
+    {
+      error && <p>{error}</p>
     }
 
   </div>)
