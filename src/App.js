@@ -9,8 +9,8 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Routes>
-          <Route path="/" component={<Home/>}/>
-          <Route path="/create" component={<Createpost/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/create" element={<Createpost/>}/>
         </Routes>
       </BrowserRouter>
     </div>
