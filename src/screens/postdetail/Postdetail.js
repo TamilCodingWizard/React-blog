@@ -15,12 +15,12 @@ export default function Postdetail() {
         <h1 className="display-4">{state.title}</h1>
         <p className="lead">{state.body}</p>
         <div className="float-end">
-          <button type="button" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Delete
           </button>
 
           <div className="float-end"></div>
-          <button type="button" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Edit
           </button>
         </div>
