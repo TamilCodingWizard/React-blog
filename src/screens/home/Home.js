@@ -1,33 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import Post from "../../components/post/Post";
 import "./Home.css";
+import { useFetch } from './../../hooks/useFetch';
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
-  const [error, setError] = useState("");
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-
-      const jsonResponse = await response.json();
-
-      if (response.ok) {
-        setPosts(jsonResponse);
-        setError("")
-      }
-
-      if (!response.ok) {
-        setError(jsonResponse.error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
+  const {data : posts,error,isPending} = useFetch("https://jsonplaceholder.typicode.com/posts")
 
   return (<div className="container">
     {
@@ -37,6 +15,9 @@ export default function Home() {
     }
     {
       error && <p>{error}</p>
+    }
+    {
+      isPending && <h3>Loading...</h3>
     }
 
   </div>)
