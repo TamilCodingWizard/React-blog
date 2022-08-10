@@ -15,13 +15,21 @@ export const useFetch = (url, method = "GET") => {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+    } else if (method === "PATCH") {
+      setOptions({
+        method: "PATCH",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
     }
   };
 
   useEffect(() => {
     const fetchPosts = async (options) => {
       setIsPending(true);
-      const response = await fetch(url,{...options});
+      const response = await fetch(url, { ...options });
 
       const jsonResponse = await response.json();
 
@@ -38,12 +46,10 @@ export const useFetch = (url, method = "GET") => {
     };
     if (method === "GET") {
       fetchPosts();
+    } else if ((method === "POST" || method === "PATCH") && options) {
+      fetchPosts(options);
     }
-    else if (method === "POST" && options) {
-      fetchPosts(options)
-    }
-    
-  }, [url,method,options]);
+  }, [url, method, options]);
 
-  return { data, error, isPending,optionsData };
+  return { data, error, isPending, optionsData };
 };
