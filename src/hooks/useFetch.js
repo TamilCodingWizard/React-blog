@@ -23,6 +23,10 @@ export const useFetch = (url, method = "GET") => {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
+    } else if (method === "DELETE") {
+      setOptions({
+        method: "DELETE"
+      });
     }
   };
 
@@ -46,7 +50,7 @@ export const useFetch = (url, method = "GET") => {
     };
     if (method === "GET") {
       fetchPosts();
-    } else if ((method === "POST" || method === "PATCH") && options) {
+    } else if ((method === "POST" || method === "PATCH" || method === "DELETE") && options) {
       fetchPosts(options);
     }
   }, [url, method, options]);

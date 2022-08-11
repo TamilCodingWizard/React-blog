@@ -76,7 +76,7 @@ export default function Editpost() {
           <label>
             <h6>Content:</h6>
           </label>
-          <textarea row="8"
+          <textarea rows="5"
             className="form-control"
             value={content}
             onChange={onContentChange }
