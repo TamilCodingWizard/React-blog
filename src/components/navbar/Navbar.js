@@ -1,10 +1,14 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useThemeContext } from './../../hooks/useThemeContext';
 
 export default function Navbar() {
+
+  const {theme} = useThemeContext()
+
   return (
-    <header>
+    <header className={`${theme}header`}>
       <div className="container">
         <Link to="/">
           <h1>Blog</h1>

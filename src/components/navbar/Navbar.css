@@ -1,7 +1,10 @@
 
-header {
-    background:  #EDC7B7;
+.lightheader{
+    background: #EDC7B7;  
+}
 
+.darkheader {
+    background:#5a77bb;
 }
 
 header .container {

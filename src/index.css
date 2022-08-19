@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background: #EEE2DC;
+  /* background: #EEE2DC; */
 
 }
 
@@ -13,3 +13,6 @@ code {
   background-color:#a86c4e !important;
 }
 
+#root {
+  height: 100vh;
+}

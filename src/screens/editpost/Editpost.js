@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Editpost.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFetch } from "./../../hooks/useFetch";
+import Appsubmitbutton from "../../components/appsubmitbutton/Appsubmitbutton";
 
 export default function Editpost() {
   const [title, setTitle] = useState("");
@@ -98,9 +99,7 @@ export default function Editpost() {
           </div>
         )}
         <div className="float-end">
-          <button type="submit" className="btn btn-primary">
-            Edit
-          </button>
+          <Appsubmitbutton title="Edit"/>
         </div>
       </form>
     </div>
